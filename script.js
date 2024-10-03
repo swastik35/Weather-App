@@ -1,4 +1,3 @@
-const APIKey = "e9d3f837cdafd44bb50a8eef4449d85f" ; 
 const API = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
 
@@ -12,6 +11,9 @@ searchbtn.addEventListener("click",() =>{
 });
 
 async function checkWeather(city){
+    const data = await fetch("./Cred.json");
+    const key = await data.json();
+    const APIKey = (key[0].key);
     const response = await fetch(`${API}&appid=${APIKey}&q=${city}`);
     const jsondata = await response.json();
     console.log(jsondata); 
