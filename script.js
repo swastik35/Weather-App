@@ -5,10 +5,16 @@ const cityName = document.querySelector(".search input");
 const searchbtn = document.querySelector(".search button");
 const weathertype = document.querySelector(".weatherIcon");
 
-
+cityName.addEventListener("keypress", function(event){
+                if(event.key==="Enter"){
+                    searchbtn.click();
+                }
+});
 searchbtn.addEventListener("click",() =>{
    checkWeather(cityName.value);
 });
+
+
 
 async function checkWeather(city){
     const data = await fetch("./Cred.json");
